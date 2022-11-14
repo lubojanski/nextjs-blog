@@ -1,8 +1,14 @@
-This is a next.js homework project made for recruitment reasons.
+## This is a next.js+tailwindcss assignment project.
 
-## Getting Started
+Project specification says to use latest nextjs, for the purpose of this assignment I used latest stable version of next - 12.
 
-run the development server:
+Project specifications says to create multiple API enpoints to fetch, search and filter - I allowed myself to merge them into one.
+
+
+## Local development
+
+
+install packages and run the development server:
 
 ```bash
 npm i
@@ -14,8 +20,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Notes:
 
-Project specification says to use latest nextjs, for the purpose of this assignment I used latest stable version of next - 12.
+## DEMO:
 
-Project specifications says to create multiple API enpoints to fetch, search and filter - I allowed myself to merge them into one.
+Open https://nextjs-blog-wl.vercel.app/ with your browser.
