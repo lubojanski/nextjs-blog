@@ -1,5 +1,6 @@
 html,
 body {
+  
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -10,17 +11,36 @@ a {
   color: inherit;
   text-decoration: none;
 }
+a.disabled {
+  pointer-events: none;
+}
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+/* depends on what needs to be supported, other option is to https://caniuse.com/?search=line-clamp  */ 
+.line-clamp-3{
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box ;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
+
+.line-clamp-2{
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box ;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
