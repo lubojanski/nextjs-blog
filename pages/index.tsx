@@ -7,6 +7,7 @@ import Pagination from "../components/Pagination";
 import Posts from "../components/Posts";
 import SearchBar from "../components/SearchBar";
 import { BlogAPIRes } from "../types";
+import { getBasePath } from "../util/getBasePath";
 
 type PageProps = BlogAPIRes & {
   searchParams: { page: string; search: string };
@@ -21,12 +22,11 @@ interface Params extends ParsedUrlQuery {
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   ctx
 ) => {
+  const basePath = getBasePath(ctx);
   const query = ctx.query as Params;
   const searchQuery = query ? stringify(query) : "";
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api/posts?${searchQuery}`
-  );
+  const res = await fetch(`${basePath}/api/posts?${searchQuery}`);
 
   if (res.status === 404) {
     return {

@@ -18,8 +18,6 @@ export default function handler(
     : null;
 
   // non-existing category
-  console.log("req.query.category :", req.query.category, categoryFilter);
-
   if (req.query.category && !categoryFilter) {
     return res.status(404).json({
       posts: [],
