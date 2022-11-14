@@ -3,7 +3,9 @@ import Post from "./Post";
 
 const Posts = ({ posts }: { posts: PostType[] | undefined }) => {
   return (
-    <div className={`grid justify-center grid-cols-1 gap-6  lg:grid-cols-6   `}>
+    <div
+      className={`grid justify-center grid-cols-1 gap-6  lg:grid-cols-6 m-auto`}
+    >
       {posts?.map((post, i) => (
         <div
           key={post.id}

@@ -21,11 +21,12 @@ interface Params extends ParsedUrlQuery {
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   ctx
 ) => {
-  const basePath = `https://${ctx.req.rawHeaders[1]}`;
   const query = ctx.query as Params;
   const searchQuery = query ? stringify(query) : "";
 
-  const res = await fetch(`${basePath}/api/posts?${searchQuery}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_FETCH_URL}/api/posts?${searchQuery}`
+  );
 
   if (res.status === 404) {
     return {
