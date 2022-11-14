@@ -22,6 +22,10 @@ interface Params extends ParsedUrlQuery {
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   ctx
 ) => {
+  ctx.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=604800, stale-while-revalidate=86400"
+  );
   const basePath = getBasePath(ctx);
   const query = ctx.query as Params;
   const searchQuery = query ? stringify(query) : "";
