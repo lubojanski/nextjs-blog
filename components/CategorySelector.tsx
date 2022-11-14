@@ -23,7 +23,7 @@ const CategorySelector = ({
   useEffect(() => {
     const searchQuery = searchParams.get("category");
     if (searchQuery) {
-      setTitle(searchQuery);
+      setTitle(searchQuery.toUpperCase());
     } else {
       setTitle("Categories");
     }
