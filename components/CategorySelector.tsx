@@ -23,7 +23,7 @@ const CategorySelector = ({
   useEffect(() => {
     const searchQuery = searchParams.get("category");
     if (searchQuery) {
-      setTitle(searchQuery.toUpperCase());
+      setTitle(searchQuery);
     } else {
       setTitle("Categories");
     }
@@ -54,7 +54,7 @@ const CategorySelector = ({
             setOpen(true);
           }}
           type="button"
-          className="inline-flex w-full sm:w-auto justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 
+          className="capitalize inline-flex w-full sm:w-auto justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 
           focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:ring-offset-1 focus:ring-offset-gray-100"
           id="menu-button"
           aria-expanded="true"
