@@ -6,7 +6,6 @@ import CategorySelector from "../components/CategorySelector";
 import Pagination from "../components/Pagination";
 import Posts from "../components/Posts";
 import SearchBar from "../components/SearchBar";
-import styles from "../styles/Home.module.css";
 import { BlogAPIRes } from "../types";
 
 type PageProps = BlogAPIRes & {
@@ -47,13 +46,11 @@ const Blog: NextPage<PageProps> = (props) => {
 
   return (
     <>
-      <div className={styles.container}>
-        <Head>
-          <title>Next.js blog </title>
-          <meta name="description" content="A homework project" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-      </div>
+      <Head>
+        <title>Next.js blog </title>
+        <meta name="description" content="A homework project" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <main className="p-4 min-h-full flex flex-col align-center justify-center">
         <div className="flex w-full space-2 align-center sm:align-middle flex-col sm:flex-row justify-center sm:justify-end">
           <CategorySelector categories={categories} />
