@@ -42,7 +42,7 @@ const SearchBar = () => {
             onChange={handleChange}
             value={search}
           ></input>
-          <button type="submit">
+          <button type="submit" title="search">
             <svg
               aria-hidden="true"
               focusable="false"

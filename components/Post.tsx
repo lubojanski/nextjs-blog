@@ -26,7 +26,7 @@ const Post = (
         />
       </div>
       <div className="px-6 pt-6 space-y-3">
-        <div className="flex space-x-6 text-indigo-500 text-sm">
+        <div className="flex space-x-6 text-indigo-600 text-sm">
           {props.categories?.map((category) => (
             <div key={category} data-cy-testid="post-category">
               {category}

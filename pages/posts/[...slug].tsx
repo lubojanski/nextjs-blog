@@ -55,7 +55,7 @@ max-w-3xl mx-auto group hover:no-underline focus:no-underline  relative overflow
         />
       </div>
       <div className=" pt-6 space-y-3">
-        <div className="flex space-x-6 text-indigo-500 text-sm">
+        <div className="flex space-x-6 text-indigo-600 text-sm">
           {post?.categories?.map((category) => (
             <div key={category} data-cy-testid="post-category">
               {category}
