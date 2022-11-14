@@ -15,6 +15,7 @@ describe("Blog", () => {
 
     // try search
     cy.get('[data-cy-testid="search"]').type("pariatur{enter}");
+    cy.url().should("include", "search=pariatur");
     cy.get('[data-cy-testid="post"]').should("have.length", 1);
     cy.get('[data-cy-testid="post"]').contains("Pariatur");
     cy.get('[data-cy-testid="post-category"]').contains("Toys");
@@ -26,11 +27,16 @@ describe("Blog", () => {
     // try music category and search pariatur
     cy.get('[data-cy-testid="category-select"]').click();
     cy.contains("Music").click();
+    cy.url().should("include", "category=music");
+
     cy.get('[data-cy-testid="post"]').should("have.length", 0);
 
     // back to toys
     cy.get('[data-cy-testid="category-select"]').click();
     cy.contains("Toys").click();
+    cy.url().should("include", "category=toys");
+    cy.url().should("not.include", "category=music");
+
     cy.get('[data-cy-testid="post"]').should("have.length", 1);
 
     // clear search
@@ -43,16 +49,33 @@ describe("Blog", () => {
     });
   });
 
-  it("should handle 404", () => {
+  it("should handle path not found", () => {
     // Start from the index page
     cy.visit("http://localhost:3000/?search=asdfasdfasdf");
 
     // we see empty search page
     cy.get('[data-cy-testid="post"]').should("have.length", 0);
 
-    cy.visit("http://localhost:3000/?category=asdfasdfasdf");
+    cy.visit("http://localhost:3000/?category=asdfasdfasdf", {
+      failOnStatusCode: false,
+    });
     // we see 404
     cy.contains("404 - the page you are looking for could not be found");
+  });
+
+  it("should display single post", () => {
+    // Start from the index page
+    cy.visit("http://localhost:3000/");
+
+    cy.get('[data-cy-testid="post"]').first().click();
+
+    cy.url().should("include", "posts/libero-exercitationem-cum-veniam");
+
+    cy.get('[data-cy-testid="post-title"]').should("be.not.empty");
+    cy.get('[data-cy-testid="post-category"]').should("be.not.empty");
+    cy.get('[data-cy-testid="post-excerpt"]').should("be.not.empty");
+    cy.get('[data-cy-testid="post-image"]').should("be.visible");
+    cy.get('[data-cy-testid="post-image"]').should("have.attr", "src");
   });
 });
 

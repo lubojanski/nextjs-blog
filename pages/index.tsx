@@ -1,11 +1,6 @@
-import {
-  GetServerSideProps,
-  GetStaticProps,
-  GetStaticPropsContext,
-  NextPage,
-} from "next";
+import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import { ParsedUrlQuery, stringify } from "querystring";
 import CategorySelector from "../components/CategorySelector";
 import Pagination from "../components/Pagination";
@@ -78,8 +73,22 @@ const Blog: NextPage<PageProps> = (props) => {
             />
           </>
         ) : (
-          <div className="flex h-fit p-20 text-lg justify-center items-center">
-            Could not find what you were looking for, please try again.
+          <div className="flex flex-col h-fit p-20 text-lg justify-center items-center">
+            <span>
+              Could not find what you were looking for, please try again.
+            </span>
+            <Link
+              href={{
+                pathname: "/",
+              }}
+            >
+              <button
+                data-cy-testid="prev"
+                className="my-6 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-lg font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+              >
+                Go home
+              </button>
+            </Link>
           </div>
         )}
       </main>

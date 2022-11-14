@@ -1,14 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import DB from "../../db";
-import { Post } from "../../types";
+import DB from "../../../db";
+import { Post } from "../../../types";
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Post | null>
 ) {
   const slug = req.query.slug;
-
   let post = slug ? DB.posts.find((post) => post.slug == slug) : null;
 
   if (!post) {
