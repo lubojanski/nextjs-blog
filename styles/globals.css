@@ -38,8 +38,6 @@ a.disabled {
   white-space: normal;
 }
 
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -5,8 +5,10 @@ This is a next.js homework project made for recruitment reasons.
 run the development server:
 
 ```bash
+npm i
 npm run dev
 # or
+yarn
 yarn dev
 ```
 
